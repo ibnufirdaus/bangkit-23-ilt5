@@ -3,7 +3,7 @@ resources:
     name: myservice0-backend-vm
     properties:
       zone: asia-southeast2-a
-      machineType: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/zones/asia-southeast2-a/machineTypes/f1-micro
+      machineType: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/zones/asia-southeast2-a/machineTypes/f1-micro
       tags:
         items: ["http-server", "https-server"]
       disks:
@@ -14,7 +14,7 @@ resources:
         initializeParams:
           sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/family/debian-11
       networkInterfaces:
-      - network: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/global/networks/default
+      - network: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/global/networks/default
         accessConfigs:
         - name: External NAT
           type: ONE_TO_ONE_NAT
@@ -22,7 +22,7 @@ resources:
     name: myservice0-frontend-vm
     properties:
       zone: asia-southeast2-a
-      machineType: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/zones/asia-southeast2-a/machineTypes/f1-micro
+      machineType: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/zones/asia-southeast2-a/machineTypes/f1-micro
       tags:
         items: ["http-server", "https-server"]
       disks:
@@ -33,14 +33,14 @@ resources:
         initializeParams:
           sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/family/debian-11
       networkInterfaces:
-      - network: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/global/networks/default
+      - network: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/global/networks/default
         accessConfigs:
         - name: External NAT
           type: ONE_TO_ONE_NAT
   - type: compute.v1.firewall
     name: myservice0-default-allow-http
     properties:
-      network: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/global/networks/default
+      network: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/global/networks/default
       targetTags: ["http-server"]
       sourceRanges: ["0.0.0.0/0"]
       allowed:
@@ -49,7 +49,7 @@ resources:
   - type: compute.v1.firewall
     name: myservice0-default-allow-https
     properties:
-      network: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/global/networks/default
+      network: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/global/networks/default
       targetTags: ["https-server"]
       sourceRanges: ["0.0.0.0/0"]
       allowed:

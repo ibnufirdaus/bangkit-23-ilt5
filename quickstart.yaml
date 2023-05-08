@@ -3,7 +3,7 @@ resources:
   name: quickstart-deployment-vm
   properties:
     zone: asia-southeast2-a
-    machineType: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/zones/asia-southeast2-a/machineTypes/f1-micro
+    machineType: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/zones/asia-southeast2-a/machineTypes/f1-micro
     disks:
     - deviceName: boot
       type: PERSISTENT
@@ -12,7 +12,7 @@ resources:
       initializeParams:
         sourceImage: https://www.googleapis.com/compute/v1/projects/debian-cloud/global/images/family/debian-11
     networkInterfaces:
-    - network: https://www.googleapis.com/compute/v1/projects/driven-lore-380623/global/networks/default
+    - network: https://www.googleapis.com/compute/v1/projects/<PROJECT_NAME>/global/networks/default
       accessConfigs:
       - name: External NAT
         type: ONE_TO_ONE_NAT
